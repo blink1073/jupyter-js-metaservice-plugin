@@ -1,0 +1,76 @@
+{
+  "name": "jupyter-js-metaservice-plugin",
+  "version": "0.1.0",
+  "description": "Plugin providing selectable Client APIs for the Jupyter services",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "dependencies": {
+    "phosphor-disposable": "^1.0.4",
+    "jupyter-js-services": "^0.0.1",
+    "phosphor-plugins": "git://github.com/phosphorjs/phosphor-plugins.git"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "istanbul": "^0.3.18",
+    "mocha": "^2.2.5",
+    "rimraf": "^2.4.2",
+    "typedoc": "^0.3.11",
+    "typescript": "^1.6.2"
+  },
+  "scripts": {
+    "clean": "rimraf docs && rimraf lib && rimraf test/build",
+    "build:src": "tsc --project src",
+    "build:test": "tsc --project test",
+    "build": "npm run build:src",
+    "docs": "typedoc --options scripts/tdoptions.json",
+    "postinstall": "npm dedupe",
+    "prepublish": "npm run build",
+    "test": "mocha test/build/test*.js",
+    "test:debug": "pkill node; node-debug _mocha test/build/test*.js",
+    "test:coverage": "istanbul cover _mocha -- test/build/test*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jupyter/jupyter-js-metaservice-plugin"
+  },
+  "keywords": [
+    "jupyter",
+    "services",
+    "notebook",
+    "plugin"
+  ],
+  "files": [
+    "lib/*.js",
+    "lib/*.d.ts"
+  ],
+  "phosphor-plugin": {
+    "extensionPoints": [
+      {
+        "point": "services:kernel",
+        "module": "lib/kernel",
+        "receiver": "receiveKernelProvider"
+      },
+      {
+        "point": "services:session",
+        "module": "lib/session",
+        "receiver": "receiveSessionProvider"
+      }, 
+      {
+        "point": "services:contents",
+        "module": "lib/contents",
+        "receiver": "receiveContentsProvider"
+      },    
+      {
+        "point": "services:config",
+        "module": "lib/config",
+        "receiver": "receiveConfigProvider"
+      }
+    ]
+  },
+  "author": "Project Jupyter",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/jupyter/jupyter-js-metaservice-plugin/issues"
+  },
+  "homepage": "https://github.com/jupyter/jupyter-js-metaservice-plugin"
+}
