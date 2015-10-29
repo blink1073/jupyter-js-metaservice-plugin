@@ -46,22 +46,22 @@
   "phosphor-plugin": {
     "extensionPoints": [
       {
-        "point": "services:kernel",
+        "id": "services:kernel",
         "module": "lib/kernel",
         "receiver": "receiveKernelProvider"
       },
       {
-        "point": "services:session",
+        "id": "services:session",
         "module": "lib/session",
         "receiver": "receiveSessionProvider"
       }, 
       {
-        "point": "services:contents",
+        "id": "services:contents",
         "module": "lib/contents",
         "receiver": "receiveContentsProvider"
       },    
       {
-        "point": "services:config",
+        "id": "services:config",
         "module": "lib/config",
         "receiver": "receiveConfigProvider"
       }
