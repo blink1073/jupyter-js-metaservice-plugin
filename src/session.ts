@@ -3,8 +3,7 @@
 'use strict';
 
 import { 
-  IAjaxOptions, INotebookSession, ISessionId, ISessionOptions, 
-  connectToSession, listRunningSessions, startNewSession
+  IAjaxOptions, INotebookSession, ISessionId, ISessionOptions
 } from 'jupyter-js-services';
 
 import {
