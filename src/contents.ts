@@ -45,5 +45,19 @@ interface IContentsProvider {
 }
 
 
+/**
+ * Contents provider extension point handler.
+ */
+export
+function receiveConfigProvider(ext: IExtension<IContentsProvider>): IDisposable {
+  providers[ext.object.name] = ext.object;
+  return new DisposableDelegate(() => {
+    if (ext.object.name in providers) {
+      delete providers[ext.object.name];
+    }
+  });
+}
+
+
 // Map of available Contents providers.
 var providers: { [key: string]: IContentsProvider } = { };

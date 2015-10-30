@@ -50,5 +50,19 @@ interface IConfigProvider {
 }
 
 
+/**
+ * Config provider extension point handler.
+ */
+export
+function receiveConfigProvider(ext: IExtension<IConfigProvider>): IDisposable {
+  providers[ext.object.name] = ext.object;
+  return new DisposableDelegate(() => {
+    if (ext.object.name in providers) {
+      delete providers[ext.object.name];
+    }
+  });
+}
+
+
 // Map of available Config providers.
 var providers: { [key: string]: IConfigProvider } = { };
