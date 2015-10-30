@@ -14,6 +14,7 @@ import {
   IExtension
 } from 'phosphor-plugins';
 
+
 export { 
   ConfigWithDefaults 
 } from 'jupyter-js-services';
