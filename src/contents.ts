@@ -27,10 +27,10 @@ function listContentsProviders(): string[] {
  * Get a contents class from a given provider.
  */
 export 
-function getContentsClass(providerName: string): () => IContents {
+function getContentsConstructor(providerName: string): () => IContents {
   let provider = providers[providerName];
   if (provider) {
-    return provider.contentsClass
+    return provider.contentsConstructor
   }
 }
 
@@ -41,7 +41,7 @@ function getContentsClass(providerName: string): () => IContents {
 export 
 interface IContentsProvider {
   name: string;
-  contentsClass: () => IContents;
+  contentsConstructor: (baseUrl: string) => IContents;
 }
 
 
