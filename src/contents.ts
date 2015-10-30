@@ -27,7 +27,7 @@ function listContentsProviders(): string[] {
  * Get a contents class from a given provider.
  */
 export 
-function getContentsConstructor(providerName: string): () => IContents {
+function getContentsConstructor(providerName: string): (baseUrl: string) => IContents {
   let provider = providers[providerName];
   if (provider) {
     return provider.contentsConstructor
