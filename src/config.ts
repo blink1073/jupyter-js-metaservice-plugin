@@ -42,7 +42,7 @@ function getConfigSection(providerName: string, sectionName: string, baseUrl: st
 
 
 /**
- * Interface for a Config Provider extension object.
+ * Interface for a `'jupyter-metaservice:config'` extension object.
  */
 export 
 interface IConfigProvider {
@@ -65,5 +65,5 @@ function receiveConfigProvider(ext: IExtension<IConfigProvider>): IDisposable {
 }
 
 
-// Map of available Config providers.
+// Map of available config providers.
 var providers: { [key: string]: IConfigProvider } = { };

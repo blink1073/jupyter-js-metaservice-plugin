@@ -25,7 +25,7 @@ function listSessionProviders(): string[] {
 
 
 /**
- * List the running sessions on a given provider.
+ * List the running sessions on the given provider.
  */
 export 
 function listRunningSessions(providerName: string, baseUrl: string, ajaxOptions?: IAjaxOptions): Promise<ISessionId[]> {
@@ -61,7 +61,7 @@ function connectToSession(providerName: string, id: string, options?: ISessionOp
 
 
 /**
- * Interface for a Session Provider extension object.
+ * Interface for a `'jupyter-metaservice:session'` extension object.
  */
 export 
 interface ISessionProvider {
@@ -86,5 +86,5 @@ function receiveSessionProvider(ext: IExtension<ISessionProvider>): IDisposable 
 }
 
 
-// Map of available Session providers.
+// Map of available session providers.
 var providers: { [key: string]: ISessionProvider } = { };

@@ -36,7 +36,7 @@ function getContentsClass(providerName: string): () => IContents {
 
 
 /**
- * Interface for a Contents Provider extension object.
+ * Interface for a `'jupyter-metaservice:contents'` extension object.
  */
 export 
 interface IContentsProvider {
@@ -59,5 +59,5 @@ function receiveConfigProvider(ext: IExtension<IContentsProvider>): IDisposable 
 }
 
 
-// Map of available Contents providers.
+// Map of available contents providers.
 var providers: { [key: string]: IContentsProvider } = { };

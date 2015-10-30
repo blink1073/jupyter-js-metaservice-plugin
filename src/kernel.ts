@@ -26,7 +26,7 @@ function listKernelProviders(): string[] {
 
 
 /**
- * Get the kernel specs from a given provider.
+ * Get the kernel specs from the given provider.
  */
 export 
 function getKernelSpecs(providerName: string, baseUrl: string, ajaxOptions?: IAjaxOptions): Promise<IKernelSpecIds> {
@@ -38,7 +38,7 @@ function getKernelSpecs(providerName: string, baseUrl: string, ajaxOptions?: IAj
 
 
 /**
- * List the running kernels on a given provider.
+ * List the running kernels on the given provider.
  */
 export 
 function listRunningKernels(providerName: string, baseUrl: string, ajaxOptions?: IAjaxOptions): Promise<IKernelId[]> {
@@ -86,7 +86,7 @@ function createKernelMessage(providerName: string, options: IKernelMessageOption
 
 
 /**
- * Interface for a Kernel Provider extension object.
+ * Interface for a `'jupyter-metaservice:kernel'` extension object.
  */
 export 
 interface IKernelProvider {
