@@ -14,6 +14,10 @@ import {
   IExtension
 } from 'phosphor-plugins';
 
+export { 
+  ConfigWithDefaults 
+} from 'jupyter-js-services';
+
 
 /**
  * Get the list of registered config providers.

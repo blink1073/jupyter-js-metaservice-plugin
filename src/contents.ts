@@ -24,10 +24,10 @@ function listContentsProviders(): string[] {
 
 
 /**
- * Get a co section from a given provider.
+ * Get a contents class from a given provider.
  */
 export 
-function getContentsClass(providerName: string): IContents {
+function getContentsClass(providerName: string): () => IContents {
   let provider = providers[providerName];
   if (provider) {
     return provider.contentsClass
@@ -41,7 +41,7 @@ function getContentsClass(providerName: string): IContents {
 export 
 interface IContentsProvider {
   name: string;
-  contentsClass: IContents;
+  contentsClass: () => IContents;
 }
 
 
